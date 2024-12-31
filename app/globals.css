@@ -4,18 +4,47 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0d0d0d;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0d0d0d;
     --foreground: #ededed;
   }
 }
 
 body {
+  box-sizing: border-box;
   color: var(--foreground);
+  cursor: none;
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+#linterna {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  pointer-events: none;
+  background: radial-gradient(circle, #1e215981 1%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+}
+
+/* Oculto cuando no está visible */
+.hidden-opacity {
+  opacity: 0;
+  transform: translateX(100px); /* Mueve hacia abajo */
+  visibility: hidden; /* Elimina la visibilidad */
+  transition: opacity 1s ease, transform 1s ease-in, visibility 0s 1s; /* La visibilidad cambia después de la animación */
+}
+
+/* Visible cuando está dentro del viewport */
+.visible-opacity {
+  opacity: 1;
+  transform: translateX(0); /* Resetea la posición */
+  visibility: visible; /* Hace visible el componente */
+  transition: opacity 1s ease, transform 1s ease-out, visibility 0s 0s; /* La visibilidad no se retrasa */
 }
