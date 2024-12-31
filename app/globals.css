@@ -22,15 +22,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#linterna {
-  position: fixed;
-  width: 350px;
-  height: 350px;
-  pointer-events: none;
-  background: radial-gradient(circle, #1e215981 1%, transparent 70%);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 50;
+@media (min-width: 1280px) {
+  #linterna {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    pointer-events: none;
+    background: radial-gradient(circle, #1e215981 1%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+  }
 }
 
 /* Oculto cuando no está visible */
