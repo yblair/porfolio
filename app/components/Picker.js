@@ -1,71 +1,93 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
-import ColorPicker from "./ColorPicker";
 import InputColorPicker from "./InputColorPicker";
+import Button from "./Button";
 
 export default function Picker({ setOpenColors }) {
   const [colors, setColors] = useState({});
 
   useEffect(() => {
     setColors({
-      background: localStorage.getItem("background"),
-      foreground: localStorage.getItem("foreground"),
-      bg: localStorage.getItem("bg"),
-      active: localStorage.getItem("active"),
-      strong: localStorage.getItem("strong"),
-      light: localStorage.getItem("light"),
-      medium: localStorage.getItem("medium"),
+      background: localStorage.getItem("background") || "#ffffff",
+      foreground: localStorage.getItem("foreground") || "#0d0d0d",
+      bg: localStorage.getItem("bg") || "#0D0D0D",
+      active: localStorage.getItem("active") || "#C4D977",
+      strong: localStorage.getItem("strong") || "#1E2159",
+      light: localStorage.getItem("light") || "#635EF2",
+      medium: localStorage.getItem("medium") || "#252273",
     });
   }, []);
 
-  console.log("picker", colors);
+  const handleChange = (color, keyColor) => {
+    setColors((prev) => ({ ...prev, [keyColor]: color }));
+    document.documentElement.style.setProperty(`--${keyColor}`, color);
+    localStorage.setItem(keyColor, color);
+  };
 
-  const handleChange = (color, key) => {
-    setColors((prev) => ({ ...prev, [key]: color }));
-    document.documentElement.style.setProperty(`--${key}`, color);
-    localStorage.setItem(key, color);
+  const reset = () => {
+    let resetColors = {
+      background: "#ffffff",
+      foreground: "#0d0d0d",
+      bg: "#0D0D0D",
+      active: "#C4D977",
+      strong: "#1E2159",
+      light: "#635EF2",
+      medium: "#252273",
+    };
+    setColors(resetColors);
+    Object.keys(resetColors).forEach((key) => {
+      document.documentElement.style.setProperty(`--${key}`, resetColors[key]);
+      localStorage.setItem(key, resetColors[key]);
+    });
   };
 
   return (
     <Modal onClose={() => setOpenColors(false)}>
-      <div className="flex max-w-[60vh] flex-wrap gap-2 px-3 py-2 overflow-auto max-h-[60vh]">
+      <div className=" max-w-[70vh] grid grid-cols-2  gap-2 px-3 py-2 overflow-auto max-h-[60vh]">
         <InputColorPicker
           color={colors.background}
-          key="background"
+          keyColor="background"
           handleChange={handleChange}
+          name="Background light"
         />
         <InputColorPicker
           color={colors.foreground}
-          key="foreground"
+          keyColor="foreground"
           handleChange={handleChange}
+          name="Background dark"
         />
         <InputColorPicker
           color={colors.bg}
-          key="bg"
+          keyColor="bg"
           handleChange={handleChange}
+          name="Text"
         />
         <InputColorPicker
           color={colors.active}
-          key="active"
+          name="Secondary"
+          keyColor="active"
           handleChange={handleChange}
         />
         <InputColorPicker
           color={colors.strong}
-          key="strong"
+          keyColor="strong"
+          name="Secondary text"
           handleChange={handleChange}
         />
         <InputColorPicker
           color={colors.light}
-          key="light"
+          keyColor="light"
+          name="Titles"
           handleChange={handleChange}
         />
         <InputColorPicker
           color={colors.medium}
-          key="medium"
+          keyColor="medium"
+          name="Buttons"
           handleChange={handleChange}
         />
       </div>
+      <Button type="primary" onClickFunction={reset} text={"Reset"} />
     </Modal>
   );
 }

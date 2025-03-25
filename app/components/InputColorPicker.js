@@ -1,10 +1,20 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import ColorPicker from "./ColorPicker";
+import ColorPickerComponent from "./ColorPicker";
 
-export default function InputColorPicker({ color, key, handleChange }) {
+export default function InputColorPicker({
+  color,
+  keyColor,
+  handleChange,
+  name,
+}) {
   const [openPicker, setOpenPicker] = useState(false);
   const pickerRef = useRef(null);
+  const [currentColor, setCurrentColor] = useState(color);
+
+  useEffect(() => {
+    setCurrentColor(color);
+  }, [color]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -15,34 +25,39 @@ export default function InputColorPicker({ color, key, handleChange }) {
 
     if (openPicker) {
       document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
     }
 
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [openPicker]);
 
-  const handleColorChange = (color) => {
-    let keyColor = key;
-    handleChange(color, keyColor);
+  const handleColorChange = (newColor) => {
+    setCurrentColor(newColor);
+    handleChange(newColor, keyColor);
   };
 
   return (
     <>
       <div
-        className="rounded-md bg-[--medium] px-3 py-2 flex items-center justify-between"
+        className="rounded-md flex px-3 py-2  cursor-pointer"
         onClick={() => setOpenPicker(!openPicker)}
       >
-        <p className="text-[--active]">{color}</p>
-        <div
-          className="h-2 w-2 rounded-md"
-          style={{ backgroundColor: color }}
-        ></div>
+        <div className="bg-[--secondary] rounded-md flex flex-row items-center justify-center gap-x-2">
+          <p>{name}</p>
+          <div
+            className="h-2 w-2 rounded-md"
+            style={{ backgroundColor: currentColor }}
+          ></div>
+        </div>
       </div>
       {openPicker && (
         <div className="z-40 absolute top-0 left-0 flex justify-center items-center w-screen h-screen">
           <div ref={pickerRef}>
-            <ColorPicker color={color} onChange={handleColorChange} />
+            <ColorPickerComponent
+              color={currentColor}
+              onChange={handleColorChange}
+            />
           </div>
         </div>
       )}
