@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@rc-component/color-picker": "^3.0.1",
+    "cookies-next": "^5.1.0",
     "next": "15.0.4",
     "next-intl": "^4.0.2",
     "react": "^19.0.0",

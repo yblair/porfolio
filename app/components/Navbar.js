@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Picker from "./Picker";
 import Button from "./Button";
+import LangSwitcher from "./LangSwitcher";
 
 export default function Navbar() {
   const [openColors, setOpenColors] = useState(false);
@@ -14,6 +15,7 @@ export default function Navbar() {
       />
 
       {openColors && <Picker setOpenColors={setOpenColors} />}
+      {/*      <LangSwitcher /> */}
     </div>
   );
 }
