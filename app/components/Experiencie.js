@@ -1,21 +1,73 @@
 "use client";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 export default function Experiencie() {
+  const t = useTranslations();
+
   const experiencie = [
     {
       project: "Backoffice",
       role: "Frontend developer",
       company: "Disruptive studio",
       actions:
-        "Construir el sitio, vistas responsivas, internacionalizacion, creacion de multitema, trabajo en conjunto con el equipo de diseño, producto y desarrolladores para implementar las mejores practicas y brindar accesibilidad. Encargada de code review.",
+        t("experience.build") +
+        ", " +
+        t("experience.i18") +
+        ", " +
+        t("experience.test") +
+        ", " +
+        t("experience.style") +
+        ", " +
+        t("experience.access") +
+        ", " +
+        t("experience.codeReview") +
+        ", " +
+        t("experience.atomic") +
+        ", " +
+        t("experience.agile") +
+        ", " +
+        t("experience.git") +
+        ", " +
+        t("experience.hooks") +
+        ", " +
+        t("experience.context") +
+        ", " +
+        t("experience.api") +
+        ", " +
+        t("experience.uxdevelopment") +
+        ", " +
+        t("experience.multitheme") +
+        ", " +
+        t("experience.teamwork") +
+        ".",
       tools: ["Javascript", "Next", "Tailwind", "HTML", "CSS"],
     },
     {
       project: "E-learning",
       role: "Frontend developer",
       company: "Disruptive studio",
-      actions: "Encargada de mejoras de componentes visuales del sitio",
+      actions:
+        t("experience.build") +
+        ", " +
+        t("experience.i18") +
+        ", " +
+        t("experience.theme") +
+        ", " +
+        t("experience.git") +
+        ", " +
+        t("experience.hooks") +
+        ", " +
+        t("experience.context") +
+        ", " +
+        t("experience.api") +
+        ", " +
+        t("experience.uxdevelopment") +
+        ", " +
+        t("experience.designimprovement") +
+        ", " +
+        t("experience.style") +
+        ".",
       tools: ["Typescript", "React", "Tailwind", "HTML", "CSS"],
     },
     {
@@ -23,7 +75,22 @@ export default function Experiencie() {
       role: "Frontend developer",
       company: "Disruptive studio",
       actions:
-        "Creacion y estilos en sitio  de apuestas hecho de imagenes de alta calidad.",
+        t("experience.imagebuilded") +
+        ", " +
+        t("experience.i18") +
+        ", " +
+        t("experience.teamwork") +
+        ", " +
+        t("experience.git") +
+        ", " +
+        t("experience.hooks") +
+        ", " +
+        t("experience.context") +
+        ", " +
+        t("experience.api") +
+        ", " +
+        t("experience.style") +
+        ".",
       tools: ["Javascript", "Next", "Tailwind", "HTML", "CSS"],
     },
     {
@@ -31,16 +98,27 @@ export default function Experiencie() {
       role: "Frontend developer",
       company: "Disruptive studio",
       actions:
-        "Creacion del website, desarrollo de componentes y vistas responsive.",
+        t("experience.build") +
+        ", " +
+        t("experience.i18") +
+        ", " +
+        t("experience.theme") +
+        ", " +
+        t("experience.git") +
+        ", " +
+        t("experience.hooks") +
+        ", " +
+        t("experience.context") +
+        ", " +
+        t("experience.api") +
+        ", " +
+        t("experience.uxdevelopment") +
+        ", " +
+        t("experience.designimprovement") +
+        ", " +
+        t("experience.style") +
+        ".",
       tools: ["Javascript", "Next", "Tailwind", "HTML", "CSS"],
-    },
-    {
-      project: "E-learning",
-      role: "QA Manual",
-      company: "Disruptive studio",
-      actions:
-        "Desarrollo de pruebas manuales para validar funcionamiento y visual del sitio.",
-      tools: ["Excel", "Word", "Azure"],
     },
   ];
 
@@ -57,7 +135,9 @@ export default function Experiencie() {
                 <p className="font-semibold text-xl">
                   {e.role}
                   {" - "}
-                  <span className="font-semibold text-light">{e.project}</span>
+                  <span className="font-semibold text-[--light]">
+                    {e.project}
+                  </span>
                 </p>
                 <p className="italic text-sm">{e.company}</p>
               </div>
@@ -66,7 +146,7 @@ export default function Experiencie() {
                 {e.tools.map((t, index) => {
                   return (
                     <p
-                      className="rounded-full px-5 py-1 text-strong bg-active"
+                      className="rounded-full px-5 py-1 text-[--strong] bg-[--active]"
                       key={index}
                     >
                       {t}

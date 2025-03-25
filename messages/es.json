@@ -1,0 +1,41 @@
+{
+  "aboutMe": {
+    "text": "Me dedico al desarrollo de software frontend, construyo y gestiono las interfaces para garantizar la mejor experiencia de usuario.",
+    "info": "Estoy abierta a nuevas oportunidades en donde pueda contribuir, aprender y crecer."
+  },
+  "contact": {
+    "download": "Descargar CV",
+    "email": "Email"
+  },
+  "experience": {
+    "build": "Desarrollo de sitio web con diseño responsive",
+    "i18": "Internacionalización de la aplicación",
+    "theme": "Creación de tema personalizado",
+    "test": "Pruebas unitarias y de integración",
+    "deploy": "Despliegue de aplicación en servidor",
+    "style": "Estilos con CSS y preprocesadores",
+    "access": "Accesibilidad web",
+    "codeReview": "Revisión de código",
+    "atomic": "Diseño atómico",
+    "agile": "Metodologías ágiles",
+    "git": "Control de versiones con Git",
+    "react": "Desarrollo de aplicaciones con React",
+    "redux": "Manejo de estado con Redux",
+    "hooks": "Uso de Hooks",
+    "context": "Context API",
+    "router": "Manejo de rutas con React Router",
+    "tailwind": "Estilos con Tailwind CSS",
+    "next": "Desarrollo de aplicaciones con Next.js",
+    "design": "Diseño de interfaces con Figma",
+    "api": "Consumo de API REST",
+    "seo": "Optimización para motores de búsqueda",
+    "uxdevelopment": "Desarrollo de UX",
+    "designimprovement": "Mejora de diseño",
+    "multitheme": "Implementación de múltiples temas",
+    "teamwork": "Trabajo en equipo",
+    "imagebuilded": "Desarrollo responsive de sitio compuesto por imagenes"
+  },
+  "header": {
+    "subtitle": "Desarrolladora frontend"
+  }
+}

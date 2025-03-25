@@ -1,0 +1,41 @@
+{
+  "aboutMe": {
+    "text": "I specialize in frontend software development, building and managing interfaces to ensure the best user experience.",
+    "info": "I am open to new opportunities where I can contribute, learn, and grow."
+  },
+  "contact": {
+    "download": "Download CV",
+    "email": "Email"
+  },
+  "experience": {
+    "build": "Website development with responsive design",
+    "i18": "Application internationalization",
+    "theme": "Custom theme creation",
+    "test": "Unit and integration testing",
+    "deploy": "Application deployment on server",
+    "style": "Styling with CSS and preprocessors",
+    "access": "Web accessibility",
+    "codeReview": "Code review",
+    "atomic": "Atomic design",
+    "agile": "Agile methodologies",
+    "git": "Version control with Git",
+    "react": "Application development with React",
+    "redux": "State management with Redux",
+    "hooks": "Using Hooks",
+    "context": "Context API",
+    "router": "Routing management with React Router",
+    "tailwind": "Styling with Tailwind CSS",
+    "next": "Application development with Next.js",
+    "design": "Interface design with Figma",
+    "api": "REST API consumption",
+    "seo": "Search engine optimization",
+    "uxdevelopment": "UX development",
+    "designimprovement": "Design improvement",
+    "multitheme": "Implementation of multiple themes",
+    "teamwork": "Teamwork",
+    "imagebuilded": "Responsive development of an image-based website"
+  },
+  "header": {
+    "subtitle": "Frontend Developer"
+  }
+}

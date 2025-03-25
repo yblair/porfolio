@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { NextIntlClientProvider } from "next-intl";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -12,27 +13,17 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata = {
-  title: "Porfolio Yamila",
-  description:
-    "En este documento se encuentra una breve descripcion sobre mi experiencia y mis tareas realizadas como frontend developer",
-};
-
-export default function RootLayout({ children }) {
+export default function LocaleLayout({ children, params: { locale } }) {
   return (
-    <>
+    <html lang={locale}>
       <head>
-        <head>
-          <link rel="icon" href="./images/bel.jpg" sizes="any" />
-        </head>
+        <link rel="icon" href="/images/bel.jpg" sizes="any" />
       </head>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          {children}
-        </body>
-      </html>
-    </>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      </body>
+    </html>
   );
 }
